@@ -1,0 +1,40 @@
+database quary
+
+>create table dataset(
+
+sl INT(6) unsigned auto_increment primary key,
+age SMALLINT UNSIGNED NOT NULL,
+gender VARCHAR(30) NOT NULL,
+smoking VARCHAR(30) NOT NULL,
+HTN VARCHAR(30) NOT NULL,
+DPL VARCHAR(30) NOT NULL,
+DM VARCHAR(30) NOT NULL,
+physical_exercise VARCHAR(30) NOT NULL,
+family_history VARCHAR(30) NOT NULL,
+drug_history VARCHAR(30) NOT NULL,
+psychological_stress VARCHAR(30) NOT NULL,
+chest_pain VARCHAR(30) NOT NULL,
+dyspnea VARCHAR(30) NOT NULL,
+palpitation VARCHAR(30) NOT NULL,
+ECG VARCHAR(30) NOT NULL,
+reg_date TIMESTAMP
+
+);
+
+#to show columns
+>show columns from dataset
+
+#to delete column
+>alter table 'table_name' drop 'column name'
+
+>show tables;
+
+#delete row 
+>DELETE FROM dataset WHERE sl > 40;
+
+#
+>ALTER TABLE dataset ADD probability FLOAT(12) NOT NULL AFTER IHD;
+
+#
+>ALTER TABLE dataset modify COLUMN probability DOUBLE(12,10);
+

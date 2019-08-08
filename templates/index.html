@@ -1,0 +1,21 @@
+{% extends "frame.html" %}
+
+
+{% block content1 %}
+
+	{% if login_flag %} 
+		<a href="/logout" ><p id="logInId">log Out</p></a>
+	{% else %}
+		<a href="/login" ><p id="logInId">log In</p></a>
+	{% endif %}
+	
+{% endblock %}
+
+
+{% block content2 %}
+
+	<h1 style="text-align: center;font-size: 50px;"> Home page is under construction</h1>
+	<a id="a01" href="/mheart" >Predict the risk of heart attack</a>
+	
+{% endblock %}
+
