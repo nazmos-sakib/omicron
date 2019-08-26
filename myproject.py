@@ -2,6 +2,8 @@
 from flask import Flask,session,render_template,redirect,request,url_for,g
 from flask import jsonify
 
+from flask_session import Session
+
 import os
 
 #import neural models and functions
@@ -20,6 +22,11 @@ app = Flask(__name__, static_url_path='')
 
 #create a secriate key to work with session
 app.secret_key = os.urandom(24)
+
+
+app.config['SESSION_TYPE'] = 'filesystem'
+
+Session(app)
 
 #database
 from flask_mysqldb import MySQL
@@ -49,8 +56,6 @@ def NN2(data):
     #global model
     predections = model.predict_classes(data,verbose=0)
     probability = model.predict(data,verbose=0)
-    print(probability[0][1])
-    print(type(probability[0][1]))
     return predections[0],probability[0][1]
 
 
@@ -127,6 +132,7 @@ def login():
 		session.pop('user_email',None)
 		#create session
 		session['user_email'] = request.form['email']
+		g.user_email = session['user_email']
 		#return to mheart page
 		return redirect(url_for('mheart'))
 		#return render_template('mheart.html')
